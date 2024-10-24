@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Helvetica";
+    src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
+ }
+ *{
+    font-family: "Helvetica";
+ }
+h1{
+    text-align: center;
+   
+ }
+ .divider img{
+    height: 70px;
+    width: 100%;
+}
+ .experience{
+    margin: 60px;
+    display: flex;
+    column-gap: 20px;
+ }
+
+.experience .experience1{
+    width:50%;
+}
+.experience .experience1 h2{
+    color: #fd4766;
+    margin-bottom: 9px;
+
+}
+.experience .experience1 h3{
+    margin-bottom: 5px;
+}
+.experience .experience1 h4{
+    color:rgb(101, 95, 95)
+}
+.experience .experience1 .para1{
+    padding-bottom: 14px;
+}
+.experience .experience1 p span{
+    color: #fd4766;
+    font-weight: 900;
+    font-size: 18px;
+
+}
+.experience .experience2{
+    width:50%;
+}
+.experience .experience2 h2{
+    color: #fd4766;
+    margin-bottom: 9px;
+
+}
+.experience .experience2 h3{
+    margin-bottom: 5px;
+}
+.experience .experience2 h4{
+    color:rgb(101, 95, 95)
+}
+.experience .experience2 .para1{
+    padding-bottom: 14px;
+}
+.experience .experience2 p span{
+    color: #fd4766;
+    font-weight: 900;
+    font-size: 18px;
+
+}

@@ -1,0 +1,56 @@
+@font-face {
+   font-family: "Helvetica";
+   src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
+}
+*{
+   font-family: "Helvetica";
+}
+.technologies{
+   margin-bottom: 60px;
+   width: 95%;
+}
+.technologies h1{
+   text-align: center;
+   font-family: "Helvetica"
+}
+.technologies .skillsText{
+   display: flex;
+   align-items: center;
+   font-family: "Helvetica";
+   margin-left: 100px;
+}
+.technologies .divider img{
+   height: 100px;
+   width: 100%;
+
+}
+.technologies .skillsText .skillHeading{
+   width: 40%;
+
+}
+.technologies .skillsText .skillParagraph{
+   width: 50%;
+}
+.motiondiv{
+   padding: 100px;
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   row-gap: 100px;
+   align-items: center;
+    
+}
+.skill{
+   display: flex;
+   /* column-gap: 24px; */
+   align-items: center;
+   justify-content:center;
+   column-gap: 20px;
+}
+.skill .skill-icon img{
+   width: 27px;
+
+}
+.skill .skill-text h6{
+   font-size: 19px;
+   font-weight: 500;
+}

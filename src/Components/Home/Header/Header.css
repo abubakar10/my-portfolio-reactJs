@@ -1,0 +1,277 @@
+   @font-face {
+    font-family: "Helvetica";
+    src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
+   }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica";
+}
+.hero {
+  width: 94%;
+}
+a {
+  text-decoration: none;
+}
+.hero h1{
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    font-size: 50px;
+    font-style: italic;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 100px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  font-size: 20px;
+  /* font-style: italic; */
+  font-weight: 600;
+}
+nav ul li a {
+  color: #1d1d24;
+  position: relative;
+}
+nav ul li a:hover {
+  color: #fd4766;
+}
+nav ul li a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #fd4766;
+  transition: 0.3s;
+  bottom: 0;
+}
+nav ul li a:hover:after {
+  width: 100%;
+}
+.btn {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  background-size: 152% 100%;
+  background: #fd4766;
+  border: 2px solid #fd4766;
+}
+.btn:hover {
+  background: transparent;
+  border-color: #fd4766;
+  color: #fd4766;
+}
+.content {
+  margin: 50px 100px 100px 100px;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+.content .intro{
+  width: 60%;
+}
+.content .myImage{
+  width: 40%;
+  /* border: 2px solid black; */
+  /* border-radius: 150px; */
+}
+.content .myImage img{
+  border: 2px solid black;
+  border-radius: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  width: 100%;
+
+}
+.content .title {
+  color: #0a0a0a;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    120deg,
+    #1c99fe 20.69%,
+    #7644ff 50.19%,
+    #fd4766 79.69%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.content h6{
+  color: #1f1f25;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 50px;
+  text-transform: inherit;
+  width: 100%;
+}
+.content h6 span{
+  color: #fd4766;
+}
+.content p {
+  font-size: 20px;
+  color: #202020;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  width: 100%;
+} 
+
+/* @media (min-width: 1400px) {
+  nav ul li {
+    font-size: 30px;
+    
+  }
+} */
+/* Media Queries */
+@media screen and (min-width: 1920px) {
+  nav {
+    padding: 30px 200px;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  nav {
+    padding: 30px 80px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  nav {
+    padding: 30px 60px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  nav {
+    padding: 30px 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    padding: 30px 20px;
+  }
+
+  .content {
+    margin: 20px;
+    flex-direction: column;
+  }
+
+  .content .intro,
+  .content .myImage {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    padding: 30px 10px;
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  nav ul {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  nav ul li {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .content {
+    margin: 20px;
+    flex-direction: column;
+  }
+
+  .content .intro,
+  .content .myImage {
+    width: 100%;
+  }
+
+  .content .title {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-align: center;
+    background: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fd4766;
+  }
+
+  .content h6 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .content p {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+}
+
+
+/* Additional Media Queries */
+@media screen and (max-width: 1000px) {
+  .content .title {
+    font-size: 24px;
+  }
+
+  .content h6 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+  .content .myImage img {
+    border-radius: 200px;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .hero {
+    width: 90%;
+  }
+}

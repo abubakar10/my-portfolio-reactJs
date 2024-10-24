@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Helvetica";
+    src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
+ }
+ *{
+    font-family: "Helvetica";
+ }
+ .contactMe{
+    margin :10px 60px;
+    
+    
+    
+ }
+.contactMe h1{
+    text-align: center;
+
+}
+.contactMe .divider img{
+    height: 70px;
+    width: 100%;
+}
+.contactMe h2{
+    width: 70%;
+    padding-bottom: 20px;
+    font-weight: 550;
+
+}
+.contactMe h3{
+    padding-bottom: 20px;
+    line-height: 30px;
+    font-weight: 590;
+}
+.contactMe h3 a{
+    color: black;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.contactMe h3 a:hover{
+    color: #fd4766;
+}
+.contactMe h3 a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #fd4766;
+    transition: 0.3s;
+    bottom: 0;
+}
+.contactMe h3 a:hover:after {
+    width: 100%;
+}
+.btn {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 40px;
+    border-radius: 500px;
+    display: inline-block;
+    font-weight: 500;
+    transition: all 0.4s ease-in-out;
+    background-size: 152% 100%;
+    background: #fd4766;
+    border: 2px solid #fd4766;
+}
+.contactMe .btn:hover {
+    background: transparent;
+    border-color: #fd4766;
+    color: #fd4766;
+}
+.contactMe h6{
+    font-size: 14px;
+    padding-top: 30px;
+    padding-bottom: 17px;
+    text-align: center;
+    font-weight: 600;
+}

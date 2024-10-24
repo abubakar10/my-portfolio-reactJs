@@ -1,0 +1,57 @@
+
+.mywork{
+    width: 95%;
+    padding: 0px  80px;
+    margin: 160px 0px;
+    
+}
+
+.mywork .divider img{
+    height: 100px;
+    width: 100%;
+ 
+}
+ /* RectangularBox.css */
+
+.mywork .rectangular-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    background-color:rgb(244, 244, 244); 
+    
+}
+  
+.mywork .rectangular-box .row {
+    display: flex;
+}
+ 
+.mywork .rectangular-box .column {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    
+    
+}
+.mywork .rectangular-box .column h4 a{
+    text-decoration: none;
+    color: #000;
+}
+.mywork .rectangular-box .column h4 a:hover{
+    text-decoration: underline;
+    color:#fd4766;
+}
+ 
+.mywork .rectangular-box .column:last-child {
+    border-right: none; /* Remove border on last column */
+}
+  
+.mywork .rectangular-box .row:last-child .column {
+    border-bottom: none; /* Remove border bottom on last row */
+}
+  
