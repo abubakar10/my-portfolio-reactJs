@@ -44,7 +44,7 @@ const Header = () => {
                I thrive on crafting visually stunning and functional web applications. My journey involves embracing modern technologies and ensuring a seamless blend of performance, security, and flexibility in digital solutions.
             </p>
             
-          <a href="./../../../Assets/Malik Abubakar Shafeeq Resume (2).pdf" download="Malik-Abubakar-Shafeeq.pdf" className="btn">Download CV</a>
+          <a href="/AbubakarShafeeqResume.pdf" download="AbubakarShafeeqResume.pdf" className="btn">Download CV</a>
           </div>
           <div className='myImage'>
             <img src={myimage} alt="" />
