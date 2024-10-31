@@ -32,6 +32,7 @@ const MySkills = () => {
     // Cleanup the observer when component unmounts or ref changes
     return () => {
       if (sectionRef.current) {
+        // eslint-disable-next-line
         observer.unobserve(sectionRef.current);
       }
     };
