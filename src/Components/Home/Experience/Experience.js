@@ -4,7 +4,7 @@ import divider from "./../../../Assets/images/divider.png"
 
 const Experience = () => {
   return (
-    <>
+    <div className='mainexperience'>
     <h1>My Experience</h1>
         <div className='divider'>
             <img src={divider} alt="" />
@@ -27,7 +27,7 @@ const Experience = () => {
                   ● I am contributing to the creation of impactful web solutions. <br />
                   ● I have utilized the following skills at this platform. <br />
                </p>
-               <p>
+               <p className='skillsp'>
                <span>Skills:</span> JavaScript · React.js  · Git · Github · Responsive Web Design · HTML5 · CSS3· Tailwind CSS · Bootstrap 5 · Web Development.
                </p>
             </div>
@@ -52,7 +52,7 @@ const Experience = () => {
                </p>
             </div>
      </div> 
-    </>
+    </div>
   )
 }
 

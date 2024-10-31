@@ -62,6 +62,7 @@ const MySkills = () => {
         </div>
       </div>
 
+      <div className='aligndiv'>
       <div className='motiondiv'>
       <motion.div
         className="technology"
@@ -74,7 +75,7 @@ const MySkills = () => {
             <img src={javascript} alt="" />
           </div>
           <div className="skill-text">
-             <h6>JAVASCRIPT</h6>
+             <h6>ReactJs</h6>
           </div>
         </div>
       </motion.div>
@@ -89,7 +90,7 @@ const MySkills = () => {
             <img src={react} alt="" />
           </div>
           <div className="skill-text">
-             <h6>React JS</h6>
+             <h6>RESPONSIVE DESIGNS</h6>
           </div>
         </div>
       </motion.div>
@@ -104,7 +105,7 @@ const MySkills = () => {
             <img src={responsive} alt="" />
           </div>
           <div className="skill-text">
-             <h6>RESPONSIVE DESIGNS</h6>
+             <h6>Javascript</h6>
           </div>
         </div>
       </motion.div>
@@ -153,7 +154,7 @@ const MySkills = () => {
           </div>
         </div>
       </motion.div>
-      
+      </div>
       </div>
       {/* Add more technologies as needed */}
       <div className="skillsText">

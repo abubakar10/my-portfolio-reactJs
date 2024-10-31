@@ -5,6 +5,7 @@
  *{
     font-family: "Helvetica";
  }
+
 h1{
     text-align: center;
    
@@ -64,4 +65,64 @@ h1{
     font-weight: 900;
     font-size: 18px;
 
+}
+
+@media (min-width: 1440px){
+    .mainexperience{
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+        
+    }
+}
+@media (max-width: 960px){
+    .experience{
+        margin: 50px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap:0px;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .experience .experience1{
+        width:100%;
+    }
+    .experience .experience2{
+        width:100%;
+    }
+    .skillsp{
+        text-align: center;
+    }
+    .experience  p{
+        text-align: left;
+        padding: 0px 40px;
+    }
+    .experience  h4{
+        text-align: center;
+    }
+    .experience  h3{
+        text-align: center;
+    }
+    .experience  h2{
+        text-align: center;
+    }
+}
+@media (max-width: 520px){
+    .experience{
+        margin: 0px;
+        padding: 10px;
+        row-gap: 10px;
+    }
+    .experience  p{
+        padding: 0px 20px;
+    }
+}
+@media (max-width: 420px){
+    
+    .experience  p{
+        padding: 0px 15px;
+        font-size: 14px;
+    }
 }

@@ -17,17 +17,19 @@
    display: flex;
    align-items: center;
    font-family: "Helvetica";
-   margin-left: 100px;
+   /* margin-left: 100px; */
+   justify-content: center;
+   column-gap: 30px;
 }
 .technologies .divider img{
    height: 100px;
    width: 100%;
 
 }
-.technologies .skillsText .skillHeading{
+/* .technologies .skillsText .skillHeading{
    width: 40%;
 
-}
+} */
 .technologies .skillsText .skillParagraph{
    width: 50%;
 }
@@ -53,4 +55,108 @@
 .skill .skill-text h6{
    font-size: 19px;
    font-weight: 500;
+}
+@media (min-width: 1440px){
+   .technologies{
+       max-width: 1440px;
+       margin: 0 auto;
+       width: 100%;
+       
+       
+   }
+}
+@media (max-width: 850px){
+
+   .motiondiv{
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      row-gap: 80px;
+      align-items: center;
+       
+   }
+
+}
+@media (max-width: 650px){
+   
+   .technologies{
+     display: flex;
+     flex-direction: column;
+   }
+   h1{
+      font-size: 30px;
+   }
+   .divider img{
+      height: 10px;
+   }
+   .technologies .skillsText{
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 20px;
+   }
+   .technologies .skillsText .skillHeading h3{
+      font-size: 14px;
+   }
+   .technologies .skillsText .skillParagraph p{
+      font-size: 13px;
+   }
+   .motiondiv{
+      padding: 0px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      row-gap: 40px; 
+       
+   }
+   .aligndiv{
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+      
+   }
+   .skill{
+      display: flex;
+      /* column-gap: 24px; */
+      align-items: center;
+      justify-content:center;
+      column-gap: 10px;
+   }
+   .technology{
+      display: flex;
+      flex: 1 1 50%; 
+      justify-content:flex-start;
+      /* margin: 0 100px; */
+      /* padding: au; */
+   }
+   .technologies .skills-text {
+      margin: 15px;
+      
+   
+   }
+   .technologies .skill-text h6{
+      font-size: 13px;
+   }
+   .skill .skill-icon img{
+      width: 18px;
+   
+   }
+   .technologies .skillsText .skillParagraph{
+      text-align: center;
+      width: 100%;
+      padding: 0px 30px;
+   }
+}
+@media (max-width: 365px){
+   .aligndiv{
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      padding-left: 12px;
+
+      
+   }
+   .technologies .skill-text h6{
+      font-size: 10px;
+   }
 }

@@ -12,7 +12,7 @@ const Home = () => {
       <BrowserRouter>
       <Header/>
       <MyWork/>
-      <MySkills/>
+       <MySkills/>
       <Experience/>
       <ContactMe/>
       <SideBar/>

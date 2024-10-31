@@ -7,7 +7,7 @@
 }
 
 .mywork .divider img{
-    height: 100px;
+    height: 90px;
     width: 100%;
  
 }
@@ -54,4 +54,59 @@
 .mywork .rectangular-box .row:last-child .column {
     border-bottom: none; /* Remove border bottom on last row */
 }
-  
+@media (min-width: 1440px){
+    .mywork{
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+        
+    }
+}
+@media (max-width: 1250px){
+    .mywork h1{
+        font-size: 27px;
+        margin: 0px;
+    }
+    .mywork .divider img{
+        height: 70px;
+     
+    }
+}
+@media (max-width: 1250px){
+    
+}
+
+@media (max-width: 820px){
+    .languages,.forwhom,.technolgy,.company{
+        display: none;
+    }
+}
+@media (max-width: 600px){
+    .mywork{
+        width: 100%;
+        padding: 0px  50px;
+        margin: 70px 0px;
+        
+    }
+    .mywork h1{
+        font-size: 22px;
+    }
+    .mywork .row .column h2{
+        font-size: 17px;
+    }
+    .mywork .rectangular-box .column h4{
+        font-size: 13px;
+    }
+}
+@media (max-width: 330px){
+    .mywork h1{
+        font-size: 20px;
+    }
+    .mywork .row .column h2{
+        font-size: 14px;
+    }
+    .mywork .rectangular-box .column h4{
+        font-size: 12px;
+    }
+
+}

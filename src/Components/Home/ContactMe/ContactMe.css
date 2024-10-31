@@ -6,7 +6,8 @@
     font-family: "Helvetica";
  }
  .contactMe{
-    margin :10px 60px;
+    /* margin :10px 60px; */
+    padding: 0px 30px;
     
     
     
@@ -51,19 +52,10 @@
 .contactMe h3 a:hover:after {
     width: 100%;
 }
-.btn {
-    color: #fff;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 16px 40px;
-    border-radius: 500px;
-    display: inline-block;
-    font-weight: 500;
-    transition: all 0.4s ease-in-out;
-    background-size: 152% 100%;
-    background: #fd4766;
-    border: 2px solid #fd4766;
+.contactMe .btn{
+    /* background-color: aliceblue; */
+    padding: 10px 20px;
+    
 }
 .contactMe .btn:hover {
     background: transparent;
@@ -76,4 +68,60 @@
     padding-bottom: 17px;
     text-align: center;
     font-weight: 600;
+}
+@media (min-width: 1440px){
+    .contactMe{
+        max-width: 1440px;
+        margin: 10px auto;
+        width: 100%;
+        padding: 0px;
+        
+    }
+}
+@media (max-width: 1050px){
+    .contactMe{
+        padding: 0px 20px;
+    }
+    .contactMe h2{
+        font-size: 20px;
+        width: 100%;
+    }
+    .contactMe h3{
+        font-size: 17px;
+    }
+}
+@media (max-width: 700px){
+    .contactMe{
+        padding: 0px 15px;
+    }
+    .contactMe h2{
+        font-size:16px;
+        width: 100%;
+    }
+    .contactMe h3{
+        font-size:16px;
+    }
+    .contactMe .btn{
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 16px 0px;
+        font-size: 15px;
+        
+    }
+}
+@media (max-width: 370px){
+    .contactMe{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 6px;
+
+        
+    }
+    .contactMe h3{
+        text-align: center;
+    }
+    .contactMe h2{
+        text-align: center;
+    }
 }
