@@ -29,14 +29,14 @@ const MySkills = () => {
 
     observer.observe(sectionRef.current);
 
-    // Cleanup the observer when component unmounts or ref changes
+    
     return () => {
       if (sectionRef.current) {
         // eslint-disable-next-line
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []); // Empty dependency array to run only on mount/unmount
+  }, []); 
 
   return (
     <div className="technologies" id="skills" ref={sectionRef}>
