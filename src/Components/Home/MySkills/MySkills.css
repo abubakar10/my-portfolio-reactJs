@@ -5,6 +5,7 @@
 
 * {
    font-family: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+   box-sizing: border-box;
 }
 
 .technologies {
@@ -18,6 +19,7 @@
    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
    position: relative;
    overflow: hidden;
+   min-height: 600px;
 }
 
 .technologies::before {
@@ -38,7 +40,7 @@
    text-align: center;
    position: relative;
    z-index: 2;
-   margin-bottom: 50px;
+   margin-bottom: 40px;
 }
 
 .technologies h1 {
@@ -154,9 +156,11 @@
 
 .skills-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
    gap: 25px;
    padding: 20px 0;
+   max-width: 1200px;
+   margin: 0 auto;
 }
 
 .skill-card {
@@ -170,7 +174,9 @@
    cursor: pointer;
    transition: all 0.3s ease;
    height: auto;
-   min-height: 280px;
+   min-height: 250px;
+   display: flex;
+   flex-direction: column;
 }
 
 .skill-card::before {
@@ -202,6 +208,8 @@
    align-items: center;
    text-align: center;
    height: 100%;
+   position: relative;
+   z-index: 2;
 }
 
 .skill-icon-wrapper {
@@ -308,24 +316,14 @@
    border: 1px solid rgba(255, 107, 107, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-   .technologies {
-      padding: 40px 25px;
-   }
-   
-   .skills-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-   }
-}
-
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
    .technologies {
       width: 98%;
       padding: 30px 20px;
       border-radius: 20px;
       margin-bottom: 40px;
+      min-height: auto;
    }
    
    .divider img {
@@ -345,17 +343,19 @@
    
    .skillHeading h3 {
       margin-bottom: 10px;
+      white-space: normal;
    }
    
    .category-tabs {
       flex-direction: column;
       align-items: center;
       gap: 15px;
+      margin-bottom: 30px;
    }
    
    .category-tab {
       width: 100%;
-      max-width: 300px;
+      max-width: 280px;
       justify-content: center;
       padding: 12px 20px;
    }
@@ -363,11 +363,12 @@
    .skills-grid {
       grid-template-columns: 1fr;
       gap: 20px;
+      padding: 10px 0;
    }
    
    .skill-card {
       padding: 20px;
-      min-height: 250px;
+      min-height: 220px;
    }
 }
 
@@ -389,25 +390,32 @@
    
    .skillsText {
       padding: 20px 15px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
    }
    
    .category-tabs {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
+      gap: 10px;
    }
    
    .category-tab {
       padding: 10px 15px;
       max-width: 250px;
+      font-size: 0.9rem;
    }
    
    .tab-text {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+   }
+   
+   .skills-grid {
+      gap: 15px;
+      padding: 5px 0;
    }
    
    .skill-card {
       padding: 18px;
-      min-height: 230px;
+      min-height: 200px;
    }
    
    .skill-icon-wrapper {
@@ -419,9 +427,12 @@
    }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
    .technologies {
       padding: 20px 10px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
    }
    
    .skillsText {
@@ -430,12 +441,13 @@
    
    .category-tab {
       padding: 8px 12px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      max-width: 220px;
    }
    
    .skill-card {
       padding: 15px;
-      min-height: 200px;
+      min-height: 180px;
    }
    
    .skill-description {
@@ -443,10 +455,35 @@
    }
 }
 
+/* Ensure visibility on very small screens */
+@media (max-width: 320px) {
+   .technologies {
+      padding: 15px 8px;
+      width: 100%;
+      margin: 0 auto 30px auto;
+   }
+   
+   .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+   }
+   
+   .skill-card {
+      padding: 12px;
+      min-height: 160px;
+   }
+   
+   .category-tab {
+      max-width: 200px;
+      padding: 6px 10px;
+   }
+}
+
 /* Landscape orientation for mobile */
 @media (max-height: 500px) and (orientation: landscape) {
    .technologies {
       padding: 20px 15px;
+      min-height: auto;
    }
    
    .skills-header {
@@ -463,11 +500,19 @@
    }
    
    .skill-card {
-      min-height: 180px;
+      min-height: 150px;
       padding: 15px;
    }
    
    .balanced-life-section {
       margin-top: 20px;
+   }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+   .technologies {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
    }
 }
