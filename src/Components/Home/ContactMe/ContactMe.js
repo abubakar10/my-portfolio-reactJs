@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import "./ContactMe.css";
 import divider from "./../../../Assets/images/divider.png";

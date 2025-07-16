@@ -1,12 +1,16 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import "./MyWork.css";
 import divider from "./../../../Assets/images/divider.png";
 
 const MyWork = () => {
-  const [visible, setVisible] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
   const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { 
+    once: true,
+    amount: 0.3,
+    margin: "0px 0px -50px 0px"
+  });
 
   const projects = [
     {
@@ -50,24 +54,6 @@ const MyWork = () => {
       description: "Full-stack fitness application with user authentication and tracking."
     }
   ];
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        setVisible(entry.isIntersecting);
-      });
-    }, { threshold: 0.3 });
-
-    observer.observe(sectionRef.current);
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -123,7 +109,7 @@ const MyWork = () => {
       ref={sectionRef}
       variants={containerVariants}
       initial="hidden"
-      animate={visible ? "visible" : "hidden"}
+      animate={isInView ? "visible" : "hidden"}
     >
       <motion.div
         variants={itemVariants}
@@ -142,7 +128,7 @@ const MyWork = () => {
         className="projects-grid"
         variants={containerVariants}
       >
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <motion.div
             key={project.id}
             variants={projectCardVariants}

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import "./MySkills.css";
 import html from "./../../../Assets/icons/html.png";
@@ -12,7 +12,6 @@ import divider from "./../../../Assets/images/divider.png";
 const MySkills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [activeCategory, setActiveCategory] = useState('frontend');
-  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
   
   // Use Framer Motion's useInView hook for better performance
@@ -153,13 +152,6 @@ const MySkills = () => {
   const handleCategoryChange = useCallback((categoryId) => {
     setActiveCategory(categoryId);
   }, []);
-
-  // Set hasAnimated when in view
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-    }
-  }, [isInView, hasAnimated]);
 
   return (
     <div className="technologies" id="skills" ref={sectionRef}>
