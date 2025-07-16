@@ -8,8 +8,8 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState('experience');
   const isInView = useInView(sectionRef, { 
     once: true,
-    amount: 0.2,
-    margin: "0px 0px -50px 0px"
+    amount: 0.1, // Reduced for better mobile detection
+    margin: "0px 0px -30px 0px" // Reduced margin for mobile
   });
 
   const experienceData = React.useMemo(() => [
@@ -235,10 +235,12 @@ const Experience = () => {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
+      style={{ opacity: 1, visibility: 'visible' }} // Fallback to always show
     >
       <motion.div
         variants={itemVariants}
         className="experience-header"
+        style={{ opacity: 1 }} // Fallback
       >
         <h1>Professional Journey</h1>
         <div className='divider'>
@@ -252,6 +254,7 @@ const Experience = () => {
       <motion.div
         variants={itemVariants}
         className="experience-tabs"
+        style={{ opacity: 1 }} // Fallback
       >
         {tabsData.map((tab) => (
           <button
@@ -269,6 +272,7 @@ const Experience = () => {
         className="experience-content"
         variants={containerVariants}
         key={activeTab} // Force re-animation when tab changes
+        style={{ opacity: 1 }} // Fallback
       >
         {renderContent()}
       </motion.div>
@@ -276,6 +280,7 @@ const Experience = () => {
       <motion.div
         variants={itemVariants}
         className="experience-footer"
+        style={{ opacity: 1 }} // Fallback
       >
         <div className="stats-grid">
           <div className="stat-item">

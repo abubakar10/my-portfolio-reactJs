@@ -1,23 +1,26 @@
-   @font-face {
-    font-family: "Helvetica";
-    src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
-   }
+@font-face {
+  font-family: "Helvetica";
+  src: url("./../../../Assets/fonts/HelveticaNeueLightItalic.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+
 .hero {
   width: 95%;
   max-width: 1400px;
   margin: 0 auto 80px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0f0f0f 100%);
   border-radius: 25px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero::before {
@@ -28,24 +31,27 @@
   right: 0;
   bottom: 0;
   background: 
-      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(80, 80, 80, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(100, 100, 100, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(60, 60, 60, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 90% 10%, rgba(80, 80, 80, 0.2) 0%, transparent 50%);
   pointer-events: none;
 }
 
 a {
   text-decoration: none;
 }
-.hero h1{
-    font-family: "Poppins", sans-serif;
-    color: #fff;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-style: italic;
-    letter-spacing: 1px;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+.hero h1 {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-style: italic;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -115,24 +121,35 @@ nav {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-.btn {
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: #fff;
-  font-size: 16px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   text-transform: uppercase;
   letter-spacing: 2px;
-  padding: 16px 20px;
+  padding: 18px 35px;
   text-align: center;
-  border-radius: 30px;
-  font-weight: 500;
-  background: #fd4766;
-  border: 2px solid #fd4766;
-  width: 250px;
+  border-radius: 50px;
+  font-weight: 600;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+  border: none;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+  transition: all 0.3s ease;
 }
-.btn:hover {
-  background: transparent;
-  border-color: #fd4766;
-  color: #fd4766;
+
+.btn-modern:hover {
+  background: linear-gradient(45deg, #ee5a6f, #ff6b6b);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+  transform: translateY(-2px);
 }
+
+.btn-icon {
+  font-size: 1.2em;
+}
+
 .content {
   margin: 50px 0;
   display: flex;
@@ -155,9 +172,9 @@ nav {
 }
 
 .content .myImage img {
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   width: 100%;
   max-width: 400px;
   height: auto;
@@ -178,7 +195,7 @@ nav {
   font-weight: 700;
 }
 
-.content h6{
+.content h6 {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 900;
   line-height: 1.3;
@@ -187,14 +204,16 @@ nav {
   color: #ff6b6b;
   margin-bottom: 20px;
 }
+
 .content p {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
   width: 100%;
   line-height: 1.8;
-} 
+}
 
+/* Responsive Design */
 @media (max-width: 1200px) {
   .hero {
     padding: 25px;
@@ -204,6 +223,7 @@ nav {
     gap: 30px;
   }
 }
+
 @media (max-width: 768px) {
   .hero {
     width: 98%;
@@ -221,13 +241,14 @@ nav {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: rgba(102, 126, 234, 0.95);
+    background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(10px);
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 20px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-menu.active {
@@ -255,6 +276,7 @@ nav {
     max-width: 70%;
   }
 }
+
 @media (max-width: 480px) {
   .hero {
     width: 100%;
@@ -275,62 +297,20 @@ nav {
     max-width: 80%;
   }
 
-  .btn {
-    font-size: 16px;
-    padding: 16px 40px;
-    
-    /* margin-left: 60px; */
-    
+  .btn-modern {
+    padding: 15px 25px;
+    font-size: 0.9rem;
   }
-  .content .title {
-    font-size: 19px;
-    letter-spacing: 3px;;
-    margin-bottom: 17px;
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 12px;
   }
-  .content h6{
-    font-size: 21px;
-    font-weight: 900;
-    line-height: 30px;
-    width: 100%;
-    text-align: center;
-    
+
+  .content .myImage {
+    max-width: 90%;
   }
-  .content p {
-    font-size: 15px;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    
-  } 
-}
-@media (max-width: 416px){
-  nav {
-    padding: 15px 9px;
-  }
-  .hero h1{
-    font-size: 20px;
-    font-weight: 500;
-}
-nav ul li {
-  padding: 10px 5px;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
- 
-  font-weight: 600;
-}
-.content .title {
-  font-size: 16px;
-  letter-spacing: 0px;;
-  margin-bottom: 17px;
-}
-.content h6{
-  font-size: 15px;
-  font-weight: 900;
-  line-height: 30px;
-  width: 100%;
-  text-align: center;
-  
-}
 }
 
 
