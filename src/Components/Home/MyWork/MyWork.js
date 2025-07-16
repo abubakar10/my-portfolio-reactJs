@@ -8,20 +8,18 @@ const MyWork = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { 
     once: true,
-    amount: 0.3,
-    margin: "0px 0px -50px 0px"
+    amount: 0.1
   });
 
   const projects = [
     {
       id: 1,
       name: "My Portfolio",
-      technology: "React.js, CSS3, Bootstrap 5",
+      technology: "React.js, CSS3, Bootstrap",
       company: "Personal Project",
       link: "https://abubakar-portfolio11.netlify.app",
       color: "#667eea",
-      status: "Live",
-      description: "A modern, responsive portfolio showcasing my development skills and projects."
+      status: "Live"
     },
     {
       id: 2,
@@ -30,8 +28,7 @@ const MyWork = () => {
       company: "Learning Project",
       link: "https://spacex-info-api.netlify.app",
       color: "#764ba2",
-      status: "Live",
-      description: "Interactive SpaceX mission data viewer with real-time API integration."
+      status: "Live"
     },
     {
       id: 3,
@@ -40,8 +37,7 @@ const MyWork = () => {
       company: "Falcon Logistics",
       link: "https://github.com/abubakar10/my-portfolio-reactJs",
       color: "#ff6b6b",
-      status: "In Progress",
-      description: "Complete logistics management system with modern UI/UX design."
+      status: "In Progress"
     },
     {
       id: 4,
@@ -50,8 +46,7 @@ const MyWork = () => {
       company: "Practice Project",
       link: "https://github.com/abubakar10/my-portfolio-reactJs",
       color: "#ee5a6f",
-      status: "Development",
-      description: "Full-stack fitness application with user authentication and tracking."
+      status: "Development"
     }
   ];
 
@@ -60,174 +55,116 @@ const MyWork = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.15
+        duration: 0.5,
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const projectCardVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    },
-    hover: {
-      y: -15,
-      scale: 1.03,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
+        duration: 0.5
       }
     }
   };
 
   return (
-    <motion.div 
-      className='mywork' 
-      id='myWork'
-      ref={sectionRef}
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-    >
+    <div className='mywork' id='myWork' ref={sectionRef}>
       <motion.div
-        variants={itemVariants}
-        className="work-header"
-      >
-        <h1>Featured Projects</h1>
-        <div className='divider'>
-          <img src={divider} alt="" />
-        </div>
-        <div className="work-intro">
-          <p>Explore my recent projects showcasing modern web development skills and creative solutions.</p>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="projects-grid"
         variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="mywork-content"
       >
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            variants={projectCardVariants}
-            whileHover="hover"
-            className="project-card"
-            style={{ '--project-color': project.color }}
-            onHoverStart={() => setHoveredProject(project.id)}
-            onHoverEnd={() => setHoveredProject(null)}
-          >
-            <div className="project-content">
-              <div className="project-header">
-                <div className="project-title-section">
+        {/* Header Section */}
+        <motion.div variants={itemVariants} className="work-header">
+          <h1>Featured Projects</h1>
+          <div className='divider'>
+            <img src={divider} alt="Divider" />
+          </div>
+          <p className="work-subtitle">
+            Explore my recent projects showcasing modern web development skills and creative solutions.
+          </p>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div variants={itemVariants} className="projects-section">
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="project-card"
+                style={{ '--project-color': project.color }}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <div className="project-header">
                   <h3>{project.name}</h3>
                   <span className={`project-status ${project.status.toLowerCase().replace(' ', '-')}`}>
                     {project.status}
                   </span>
                 </div>
-                <div className="project-number">0{project.id}</div>
-              </div>
-              
-              <div className="project-description">
-                <p>{project.description}</p>
-              </div>
 
-              <div className="project-details">
-                <div className="detail-row">
-                  <div className="detail-item">
-                    <span className="detail-label">🛠️ Technology</span>
-                    <span className="detail-value">{project.technology}</span>
-                  </div>
+                <div className="project-tech">
+                  <strong>Tech Stack:</strong> {project.technology}
                 </div>
-                
-                <div className="detail-row">
-                  <div className="detail-item">
-                    <span className="detail-label">🏢 Client</span>
-                    <span className="detail-value">{project.company}</span>
-                  </div>
-                </div>
-              </div>
 
-              <div className="project-actions">
-                <motion.a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link primary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>View Project</span>
-                  <span className="link-arrow">→</span>
-                </motion.a>
-                
-                <motion.button
-                  className="project-link secondary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>Learn More</span>
-                </motion.button>
+                <div className="project-company">
+                  <strong>Client:</strong> {project.company}
+                </div>
+
+                <div className="project-actions">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-btn primary"
+                  >
+                    View Project →
+                  </a>
+                  <button className="project-btn secondary">
+                    Learn More
+                  </button>
+                </div>
+
+                {/* Hover Effect */}
+                <div 
+                  className="project-hover-bg"
+                  style={{
+                    opacity: hoveredProject === project.id ? 0.1 : 0
+                  }}
+                />
               </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Stats Section */}
+        <motion.div variants={itemVariants} className="work-stats">
+          <div className="stats-grid">
+            <div className="stat-item">
+              <span className="stat-number">4+</span>
+              <span className="stat-label">Projects</span>
             </div>
-
-            {/* Animated background glow */}
-            <motion.div 
-              className="project-glow"
-              animate={{
-                opacity: hoveredProject === project.id ? 0.6 : 0,
-                scale: hoveredProject === project.id ? 1.2 : 1
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
-        ))}
+            <div className="stat-item">
+              <span className="stat-number">2+</span>
+              <span className="stat-label">Clients</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">6+</span>
+              <span className="stat-label">Technologies</span>
+            </div>
+          </div>
+          <p className="work-footer-text">
+            🚀 More exciting projects coming soon!
+          </p>
+        </motion.div>
       </motion.div>
-
-      <motion.div
-        variants={itemVariants}
-        className="work-footer"
-      >
-        <div className="stats-section">
-          <div className="stat-item">
-            <span className="stat-number">4+</span>
-            <span className="stat-label">Projects Completed</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">2+</span>
-            <span className="stat-label">Happy Clients</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">6+</span>
-            <span className="stat-label">Technologies Used</span>
-          </div>
-        </div>
-        <p className="footer-text">
-          🚀 More exciting projects are in development! Follow my journey as I continue building innovative web solutions.
-        </p>
-      </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
