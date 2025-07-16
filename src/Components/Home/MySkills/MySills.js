@@ -225,7 +225,12 @@ const MySkills = () => {
               <div className="skill-content">
                 <div className="skill-icon-wrapper">
                   <img src={skill.icon} alt={skill.name} className="skill-icon" />
-                  <div className="skill-glow"></div>
+                  <div 
+                    className="skill-glow"
+                    style={{
+                      opacity: hoveredSkill === skill.id ? 0.4 : 0
+                    }}
+                  ></div>
                 </div>
                 
                 <div className="skill-info">
@@ -242,7 +247,7 @@ const MySkills = () => {
                         className="progress-fill"
                         initial={{ width: 0 }}
                         animate={{ 
-                          width: isInView ? `${skill.level}%` : '0%' 
+                          width: isInView && (hoveredSkill === skill.id || hoveredSkill === null) ? `${skill.level}%` : '0%' 
                         }}
                         transition={{ 
                           duration: 0.8, 
