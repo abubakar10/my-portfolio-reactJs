@@ -107,4 +107,23 @@
     background: rgba(0, 102, 255, 0.1);
     border-radius: 0;
   }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 50px;
+    padding: 12px 0;
+  }
+
+  .sidebar li a img {
+    width: 24px;
+    height: 24px;
+  }
+}
   
