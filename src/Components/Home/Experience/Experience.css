@@ -4,7 +4,7 @@
 }
 
 * {
-    font-family: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .mainexperience {
@@ -13,12 +13,15 @@
     max-width: 1400px;
     margin: 0 auto 80px auto;
     padding: 50px 30px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0f0f0f 100%);
-    border-radius: 25px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    background: rgba(15, 20, 30, 0.8);
+    border-radius: 0;
+    box-shadow: 
+      0 0 0 1px rgba(0, 102, 255, 0.2),
+      0 20px 60px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    backdrop-filter: blur(20px);
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;
@@ -32,23 +35,37 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(80, 80, 80, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(100, 100, 100, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(60, 60, 60, 0.2) 0%, transparent 50%);
+        linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(225deg, rgba(0, 212, 255, 0.06) 0%, transparent 50%);
     pointer-events: none;
 }
 
+.mainexperience::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #0066ff, #00d4ff);
+    opacity: 0.8;
+}
+
 .experience-header {
-    text-align: center;
+    text-align: left;
     position: relative;
     z-index: 2;
     margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.2);
 }
 
 .mainexperience h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    background: linear-gradient(45deg, #fff, #e0e0e0);
+    background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+    text-transform: uppercase;
+    letter-spacing: -1px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -62,11 +79,11 @@
     color: rgba(255, 255, 255, 0.8);
     margin-top: 20px;
     font-style: italic;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 102, 255, 0.05);
     padding: 15px 25px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-left: 4px solid #0066ff;
     display: inline-block;
 }
 
@@ -94,33 +111,44 @@
     gap: 10px;
     padding: 15px 25px;
     border: none;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.8);
+    border-radius: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 102, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
     font-size: clamp(0.9rem, 1.3vw, 1.1rem);
     font-weight: 500;
 }
 
 .tab-button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 102, 255, 0.1);
+    color: #00d4ff;
+    border-color: #0066ff;
+    transform: translateX(5px);
 }
 
 .tab-button.active {
-    background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+    background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
     color: #fff;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+    border-color: transparent;
+    transform: translateX(0);
 }
 
 .tab-icon {
     font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-icon svg {
+    width: 18px;
+    height: 18px;
 }
 
 .tab-label {
@@ -150,7 +178,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #ff6b6b, #333);
+    background: linear-gradient(to bottom, #0066ff, #00d4ff);
     border-radius: 2px;
 }
 
@@ -177,23 +205,34 @@
 
 .timeline-icon {
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.timeline-icon svg {
+    width: 16px;
+    height: 16px;
 }
 
 .timeline-content {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    background: rgba(0, 102, 255, 0.05);
+    border-radius: 0;
     padding: 30px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-left: 4px solid var(--item-color);
     position: relative;
     transition: all 0.3s ease;
 }
 
 .timeline-content:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 102, 255, 0.1);
+    transform: translateX(10px);
+    box-shadow: 
+      0 0 30px rgba(0, 102, 255, 0.3),
+      inset 0 0 20px rgba(0, 212, 255, 0.05);
+    border-color: rgba(0, 102, 255, 0.4);
 }
 
 .timeline-content::before {
@@ -221,7 +260,7 @@
 
 .job-info h4 {
     font-size: clamp(1.1rem, 2vw, 1.3rem);
-    color: #ff6b6b;
+    color: #00d4ff;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -235,12 +274,18 @@
 .duration, .location {
     font-size: clamp(0.9rem, 1.3vw, 1rem);
     color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 102, 255, 0.1);
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: 0;
     display: flex;
     align-items: center;
     gap: 5px;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+}
+
+.duration svg, .location svg {
+    color: #00d4ff;
+    flex-shrink: 0;
 }
 
 .achievements h5 {
@@ -269,35 +314,52 @@
     content: '✓';
     position: absolute;
     left: 0;
-    color: #ff6b6b;
+    color: #00d4ff;
     font-weight: bold;
 }
 
 .technologies {
-    margin-top: 20px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 102, 255, 0.2);
 }
 
 .technologies h5 {
     font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-    color: #fff;
-    margin-bottom: 5px;
-    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
 }
 
 .tech-tag {
-    background: linear-gradient(45deg, var(--item-color), rgba(255, 255, 255, 0.1));
+    background: rgba(0, 102, 255, 0.15);
     color: #fff;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 0;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    font-weight: 600;
+    border: 1px solid rgba(0, 102, 255, 0.4);
+    border-left: 3px solid var(--item-color);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tech-tag:hover {
+    background: rgba(0, 102, 255, 0.25);
+    border-color: #00d4ff;
+    transform: translateX(3px);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 /* Education Styling */
@@ -340,7 +402,16 @@
 .education-icon {
     font-size: 4rem;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d4ff;
+}
+
+.education-icon svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
 }
 
 .education-content h3 {
@@ -352,7 +423,7 @@
 
 .education-content h4 {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-    color: #ff6b6b;
+    color: #00d4ff;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -399,7 +470,16 @@
 .project-icon {
     font-size: 2.5rem;
     margin-bottom: 15px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d4ff;
+}
+
+.project-icon svg {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
 }
 
 .project-content h4 {
@@ -411,7 +491,7 @@
 
 .project-tech {
     font-size: clamp(0.9rem, 1.3vw, 1rem);
-    color: #ff6b6b;
+    color: #00d4ff;
     font-weight: 600;
     margin-bottom: 10px;
 }
@@ -435,7 +515,7 @@
 }
 
 .project-link:hover {
-    background: linear-gradient(45deg, #ee5a6f, #ff6b6b);
+    background: linear-gradient(135deg, #8a2be2 0%, #00ffff 100%);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
@@ -451,11 +531,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 102, 255, 0.05);
     padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-left: 4px solid #0066ff;
 }
 
 .stat-item {
@@ -466,7 +546,7 @@
     display: block;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 900;
-    color: #ff6b6b;
+    color: #00d4ff;
     line-height: 1;
     margin-bottom: 5px;
 }

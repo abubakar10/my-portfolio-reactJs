@@ -11,9 +11,9 @@ const Home = () => {
     <>
       <BrowserRouter>
       <Header/>
-      <MyWork/>
-       <MySkills/>
+      <MySkills/>
       <Experience/>
+      <MyWork/>
       <ContactMe/>
       <SideBar/>
       </BrowserRouter>

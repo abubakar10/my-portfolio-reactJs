@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { FaPalette, FaCog, FaTools } from 'react-icons/fa';
 import "./MySkills.css";
 import html from "./../../../Assets/icons/html.png";
 import css from "./../../../Assets/icons/css-3.png";
@@ -28,16 +29,16 @@ const MySkills = () => {
         id: 1, 
         name: "React.js", 
         icon: react, 
-        level: 90, 
-        description: "Building interactive UIs with modern React patterns",
+        level: 92, 
+        description: "Building interactive UIs with modern React patterns & hooks",
         color: "#61DAFB"
       },
       { 
         id: 2, 
         name: "JavaScript", 
         icon: javascript, 
-        level: 85, 
-        description: "ES6+ features and modern JavaScript development",
+        level: 88, 
+        description: "ES6+ features, async programming, and modern JS development",
         color: "#F7DF1E"
       },
       { 
@@ -52,15 +53,15 @@ const MySkills = () => {
         id: 4, 
         name: "CSS3", 
         icon: css, 
-        level: 88, 
-        description: "Advanced styling with animations and layouts",
+        level: 90, 
+        description: "Advanced styling with animations, layouts & Tailwind CSS",
         color: "#1572B6"
       },
       { 
         id: 5, 
         name: "Bootstrap", 
         icon: bootstrap, 
-        level: 80, 
+        level: 85, 
         description: "Responsive framework for rapid development",
         color: "#7952B3"
       },
@@ -68,34 +69,93 @@ const MySkills = () => {
         id: 6, 
         name: "Responsive Design", 
         icon: responsive, 
-        level: 92, 
+        level: 93, 
         description: "Mobile-first approach and cross-device compatibility",
         color: "#FF6B6B"
       }
     ],
-    tools: [
+    backend: [
       { 
         id: 7, 
+        name: "Node.js", 
+        icon: javascript, 
+        level: 85, 
+        description: "Server-side JavaScript and runtime environment",
+        color: "#339933"
+      },
+      { 
+        id: 8, 
+        name: "Express.js", 
+        icon: html, 
+        level: 83, 
+        description: "RESTful API development and middleware",
+        color: "#000000"
+      },
+      { 
+        id: 9, 
+        name: "MongoDB", 
+        icon: css, 
+        level: 80, 
+        description: "NoSQL database and Mongoose ODM",
+        color: "#47A248"
+      }
+    ],
+    tools: [
+      { 
+        id: 10, 
         name: "Git & GitHub", 
         icon: html, 
-        level: 85, 
+        level: 88, 
         description: "Version control and collaborative development",
         color: "#F05032"
       },
       { 
-        id: 8, 
-        name: "Development Tools", 
+        id: 11, 
+        name: "GitHub Actions", 
         icon: css, 
-        level: 90, 
-        description: "Modern IDE usage and productivity tools",
-        color: "#007ACC"
+        level: 75, 
+        description: "CI/CD pipelines and automation",
+        color: "#2088FF"
+      },
+      { 
+        id: 12, 
+        name: "Azure", 
+        icon: react, 
+        level: 70, 
+        description: "Cloud platform deployment and services",
+        color: "#0078D4"
+      },
+      { 
+        id: 13, 
+        name: "AWS", 
+        icon: bootstrap, 
+        level: 68, 
+        description: "Amazon Web Services and cloud infrastructure",
+        color: "#FF9900"
+      },
+      { 
+        id: 14, 
+        name: "Terraform", 
+        icon: responsive, 
+        level: 65, 
+        description: "Infrastructure as Code (IaC)",
+        color: "#7B42BC"
+      },
+      { 
+        id: 15, 
+        name: "Supabase", 
+        icon: javascript, 
+        level: 72, 
+        description: "Backend-as-a-Service platform",
+        color: "#3ECF8E"
       }
     ]
   }), []);
 
   const categories = React.useMemo(() => [
-    { id: 'frontend', name: 'Frontend Technologies', icon: '🎨' },
-    { id: 'tools', name: 'Development Tools', icon: '🛠️' }
+    { id: 'frontend', name: 'Frontend', icon: <FaPalette /> },
+    { id: 'backend', name: 'Backend', icon: <FaCog /> },
+    { id: 'tools', name: 'Tools & Cloud', icon: <FaTools /> }
   ], []);
 
   // Optimized animation variants with reduced complexity
@@ -180,9 +240,9 @@ const MySkills = () => {
         </div>
         <div className="skillParagraph">
           <p>
-            Technology changes but I keep up with it. I focus on modern
-            technology to deliver the best performance, security, and flexibility
-            for digital solutions, ensuring exceptional results every time.
+            Full-stack expertise across the MERN stack with hands-on experience in cloud platforms, 
+            CI/CD pipelines, and modern development practices. I focus on delivering scalable, 
+            high-performance solutions with clean code and best practices.
           </p>
         </div>
       </motion.div>
@@ -269,26 +329,6 @@ const MySkills = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }} // Always show on mobile
-        transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
-        className="balanced-life-section"
-        style={{ opacity: 1 }} // Fallback
-      >
-        <div className="skillsText">
-          <div className="skillHeading">
-            <h3>Balanced Life ⚖️</h3>
-          </div>
-          <div className="skillParagraph">
-            <p>
-              Magical things happen when your personal life and work life are in
-              balance ✨. I believe in continuous learning, creativity, and maintaining
-              harmony to deliver exceptional results.
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 };

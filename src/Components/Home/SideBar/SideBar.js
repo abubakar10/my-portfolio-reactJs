@@ -19,7 +19,7 @@ const SideBar = () => {
       id: 2,
       name: "LinkedIn",
       icon: linkedIn,
-      url: "https://www.linkedin.com/in/abubakar-shafeeq-88294b243/",
+      url: "https://www.linkedin.com/in/abubakar-shafeeq1/",
       color: "#0077B5"
     }
   ];

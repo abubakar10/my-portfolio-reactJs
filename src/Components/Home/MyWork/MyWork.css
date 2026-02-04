@@ -4,7 +4,7 @@
 }
 
 * {
-    font-family: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box;
 }
 
@@ -14,12 +14,15 @@
     max-width: 1400px;
     margin: 0 auto 80px auto;
     padding: 50px 30px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0f0f0f 100%);
-    border-radius: 25px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    background: rgba(15, 20, 30, 0.8);
+    border-radius: 0;
+    box-shadow: 
+      0 0 0 1px rgba(0, 102, 255, 0.2),
+      0 20px 60px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    backdrop-filter: blur(20px);
 }
 
 .mywork::before {
@@ -30,9 +33,20 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(80, 80, 80, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(100, 100, 100, 0.1) 0%, transparent 50%);
+        linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(225deg, rgba(0, 212, 255, 0.06) 0%, transparent 50%);
     pointer-events: none;
+}
+
+.mywork::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #0066ff, #00d4ff);
+    opacity: 0.8;
 }
 
 .mywork-content {
@@ -42,14 +56,16 @@
 
 /* Header */
 .work-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.2);
 }
 
 .work-header h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    background: linear-gradient(45deg, #fff, #e0e0e0);
+    background: linear-gradient(135deg, #00ffff 0%, #8a2be2 50%, #ff8c00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -73,7 +89,8 @@
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 /* Projects Section */
@@ -91,11 +108,12 @@
 
 /* Project Cards */
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    background: rgba(0, 102, 255, 0.05);
+    border-radius: 0;
     padding: 30px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-left: 4px solid var(--project-color);
+    backdrop-filter: blur(20px);
     position: relative;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -113,10 +131,12 @@
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px) translateY(-5px);
+    box-shadow: 
+      0 0 30px rgba(0, 102, 255, 0.3),
+      inset 0 0 20px rgba(0, 212, 255, 0.05);
+    background: rgba(0, 102, 255, 0.1);
+    border-color: rgba(0, 102, 255, 0.4);
 }
 
 .project-hover-bg {
@@ -131,8 +151,44 @@
 }
 
 /* Project Content */
+.project-icon-large {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d4ff;
+    transition: all 0.3s ease;
+}
+
+.project-icon-large svg {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 4px 8px rgba(0, 212, 255, 0.5));
+}
+
+.project-card:hover .project-icon-large {
+    color: #0066ff;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.project-card:hover .project-icon-large svg {
+    filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.8));
+}
+
 .project-header {
     margin-bottom: 20px;
+}
+
+.project-description {
+    margin-bottom: 20px;
+}
+
+.project-description p {
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin: 0;
 }
 
 .project-header h3 {
@@ -231,11 +287,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 102, 255, 0.05);
     padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-left: 4px solid #0066ff;
+    backdrop-filter: blur(20px);
     margin-bottom: 30px;
     max-width: 600px;
     margin: 0 auto 30px auto;
@@ -249,7 +306,7 @@
     display: block;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     font-weight: 900;
-    color: #ff6b6b;
+    color: #00ffff;
     line-height: 1;
 }
 
@@ -267,7 +324,8 @@
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
     max-width: 500px;
     margin: 0 auto;
 }

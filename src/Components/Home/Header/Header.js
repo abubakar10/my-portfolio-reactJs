@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { FaFileDownload, FaComments } from 'react-icons/fa';
 import './Header.css';
-import myimage from "./../../../Assets/images/download.png";
+import myimage from "./../../../Assets/images/download.jpeg";
+import cvPdf from "./../../../download.pdf";
 import { HashLink as Link } from 'react-router-hash-link';
 
 const Header = () => {
@@ -61,17 +63,22 @@ const Header = () => {
           <ul>
             <li>
               <Link to="#skills" smooth onClick={closeMenu}>
-                My Skills
+                Skills
               </Link>
             </li>
             <li>
-              <Link to="#contactMe" smooth onClick={closeMenu}>
-                Contact Me
+              <Link to="#experience" smooth onClick={closeMenu}>
+                Experience
               </Link>
             </li>
             <li>
               <Link to="#myWork" smooth onClick={closeMenu}>
-                What I've Done
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link to="#contactMe" smooth onClick={closeMenu}>
+                Contact
               </Link>
             </li>
           </ul>
@@ -89,25 +96,63 @@ const Header = () => {
 
       <motion.div className="content" variants={containerVariants}>
         <motion.div className='intro' variants={itemVariants}>
-          <span className="title">Freelance Web Developer</span>
-          <h6>Passionate Web Developer.</h6>
-          <p>
-            As a dedicated frontend developer with a strong passion for creating exceptional user experiences, I bring 0.6 years of expertise in HTML5, CSS3, JavaScript, and React. My skills extend to frameworks like Bootstrap5, and I'm currently diving deep into the world of Node JS.
-            <br /><br />
-            I thrive on crafting visually stunning and functional web applications. My journey involves embracing modern technologies and ensuring a seamless blend of performance, security, and flexibility in digital solutions.
-          </p>
-          
-          <motion.a 
-            href="/AbubakarShafeeqResume.pdf" 
-            download="AbubakarShafeeqResume.pdf" 
-            className="btn-modern"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.2 }}
+          <motion.span 
+            className="title"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
           >
-            <span className="btn-icon">📄</span>
-            Download CV
-          </motion.a>
+            Software Engineer
+          </motion.span>
+          <motion.h6
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            Full-Stack Developer | MERN Stack Specialist
+          </motion.h6>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            Full-Stack Software Engineer with hands-on experience in building and maintaining product-based web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Experienced in developing clean, scalable, and high-performance user interfaces with seamless backend integration.
+            <br /><br />
+            Strong expertise in modern frontend frameworks, state management, and performance optimization. Backend expertise includes RESTful API development, authentication and authorization, real-time communication, and database optimization. Experienced in cloud platforms including Azure and AWS, with hands-on exposure to deployments, CI/CD pipelines, and application monitoring.
+          </motion.p>
+          
+          <motion.div 
+            className="cta-buttons"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <motion.a 
+              href={cvPdf} 
+              download="Malik_Abubakar_Shafeeq_CV.pdf" 
+              className="btn-modern primary"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <span className="btn-icon">
+                <FaFileDownload />
+              </span>
+              Download CV
+            </motion.a>
+            <motion.a 
+              href="#contactMe" 
+              className="btn-modern secondary"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <span className="btn-icon">
+                <FaComments />
+              </span>
+              Get In Touch
+            </motion.a>
+          </motion.div>
         </motion.div>
 
         <motion.div 

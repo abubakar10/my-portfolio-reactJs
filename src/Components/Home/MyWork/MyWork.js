@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { FaBriefcase, FaHospital, FaGlobe, FaRocket, FaIndustry, FaLaptopCode } from 'react-icons/fa';
 import "./MyWork.css";
 import divider from "./../../../Assets/images/divider.png";
 
@@ -14,39 +15,58 @@ const MyWork = () => {
   const projects = [
     {
       id: 1,
-      name: "My Portfolio",
-      technology: "React.js, CSS3, Bootstrap",
-      company: "Personal Project",
-      link: "https://abubakar-portfolio11.netlify.app",
-      color: "#667eea",
-      status: "Live"
+      name: "cPanel License Management Platform",
+      technology: "MERN Stack, Stripe, JWT, OAuth, MongoDB, Express.js",
+      company: "SaaS Platform",
+      description: "Full-stack SaaS platform with automated subscription management, payment processing, and license generation. Features include JWT authentication, Google OAuth, Stripe integration, and real-time dashboard updates.",
+      link: "https://www.cpanelforless.com/",
+      color: "#0066ff",
+      status: "Live",
+      icon: <FaBriefcase />
     },
     {
       id: 2,
-      name: "SpaceX Info API",
-      technology: "React.js, REST API, Bootstrap",
-      company: "Learning Project",
-      link: "https://spacex-info-api.netlify.app",
-      color: "#764ba2",
-      status: "Live"
+      name: "ITCS Company Website",
+      technology: "MERN Stack, RESTful API, Azure, Git, Dev.to Integration",
+      company: "IT Consulting & Services",
+      description: "IT services and consulting company website built with MERN stack. Features include service showcase, API integration, Azure cloud deployment, Git version control, and Dev.to blog integration for content management.",
+      link: "https://itcss.netlify.app/",
+      color: "#00d4ff",
+      status: "Live",
+      icon: <FaLaptopCode />
     },
     {
       id: 3,
-      name: "Falcon Logistics",
-      technology: "React.js, Bootstrap, CSS3",
-      company: "Falcon Logistics",
-      link: "https://github.com/abubakar10/my-portfolio-reactJs",
-      color: "#ff6b6b",
-      status: "In Progress"
+      name: "Octaloop Company Website",
+      technology: "React.js, Ant Design, Tailwind CSS",
+      company: "Octaloop Technologies",
+      description: "Company portfolio website with modern UI/UX design, interactive components, and responsive layouts built with React and modern CSS frameworks.",
+      link: "https://www.octaloop.io/",
+      color: "#0066ff",
+      status: "Live",
+      icon: <FaGlobe />
     },
     {
       id: 4,
-      name: "ToeFit Website",
-      technology: "MERN Stack, CSS3",
-      company: "Practice Project",
-      link: "https://github.com/abubakar10/my-portfolio-reactJs",
-      color: "#ee5a6f",
-      status: "Development"
+      name: "Gas Station Management System",
+      technology: "MERN Stack, React.js, Node.js, MongoDB, Express.js",
+      company: "RK & Co",
+      description: "Comprehensive gas station management system for inventory tracking, sales management, employee management, and real-time reporting. Features include automated fuel monitoring, transaction processing, and administrative dashboards.",
+      link: "https://rkandco.online/",
+      color: "#0066ff",
+      status: "Live",
+      icon: <FaIndustry />
+    },
+    {
+      id: 5,
+      name: "Personal Portfolio",
+      technology: "React.js, Vite, Framer Motion, CSS3",
+      company: "Personal Project",
+      description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations and interactive UI components.",
+      link: "https://www.abubakar-portfolio.site",
+      color: "#00d4ff",
+      status: "Live",
+      icon: <FaRocket />
     }
   ];
 
@@ -87,7 +107,7 @@ const MyWork = () => {
             <img src={divider} alt="Divider" />
           </div>
           <p className="work-subtitle">
-            Explore my recent projects showcasing modern web development skills and creative solutions.
+            Full-stack applications and modern web solutions built with MERN stack, cloud platforms, and cutting-edge technologies.
           </p>
         </motion.div>
 
@@ -95,18 +115,26 @@ const MyWork = () => {
         <motion.div variants={itemVariants} className="projects-section">
           <div className="projects-grid">
             {projects.map((project) => (
-              <div
+              <motion.div
                 key={project.id}
                 className="project-card"
                 style={{ '--project-color': project.color }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
+                <div className="project-icon-large">{project.icon}</div>
+                
                 <div className="project-header">
                   <h3>{project.name}</h3>
                   <span className={`project-status ${project.status.toLowerCase().replace(' ', '-')}`}>
                     {project.status}
                   </span>
+                </div>
+
+                <div className="project-description">
+                  <p>{project.description}</p>
                 </div>
 
                 <div className="project-tech">
@@ -118,27 +146,26 @@ const MyWork = () => {
                 </div>
 
                 <div className="project-actions">
-                  <a 
+                  <motion.a 
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="project-btn primary"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     View Project →
-                  </a>
-                  <button className="project-btn secondary">
-                    Learn More
-                  </button>
+                  </motion.a>
                 </div>
 
                 {/* Hover Effect */}
                 <div 
                   className="project-hover-bg"
                   style={{
-                    opacity: hoveredProject === project.id ? 0.1 : 0
+                    opacity: hoveredProject === project.id ? 0.15 : 0
                   }}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -147,20 +174,24 @@ const MyWork = () => {
         <motion.div variants={itemVariants} className="work-stats">
           <div className="stats-grid">
             <div className="stat-item">
-              <span className="stat-number">4+</span>
+              <span className="stat-number">12+</span>
               <span className="stat-label">Projects</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">2+</span>
-              <span className="stat-label">Clients</span>
+              <span className="stat-number">3</span>
+              <span className="stat-label">Companies</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">6+</span>
+              <span className="stat-number">15+</span>
               <span className="stat-label">Technologies</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">100%</span>
+              <span className="stat-label">Satisfaction</span>
             </div>
           </div>
           <p className="work-footer-text">
-            🚀 More exciting projects coming soon!
+            🚀 Continuously building innovative solutions with modern technologies!
           </p>
         </motion.div>
       </motion.div>
