@@ -62,15 +62,15 @@
     border-bottom: 1px solid rgba(0, 102, 255, 0.2);
 }
 
-.work-header h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, #00ffff 0%, #8a2be2 50%, #ff8c00 100%);
+.work-header .section-title {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 20px;
-    text-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+    text-transform: uppercase;
 }
 
 .divider img {
@@ -81,16 +81,11 @@
 }
 
 .work-subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: rgba(255, 255, 255, 0.9);
-    margin: 20px auto 0 auto;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    max-width: 760px;
+    line-height: 1.7;
 }
 
 /* Projects Section */
@@ -181,14 +176,28 @@
 }
 
 .project-description {
-    margin-bottom: 20px;
-}
-
-.project-description p {
     font-size: clamp(0.95rem, 1.3vw, 1.1rem);
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 16px 0;
+}
+
+.project-highlights {
+    list-style: none;
+    margin: 0 0 18px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-highlights li {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 6px 10px;
+    border: 1px solid rgba(0, 102, 255, 0.25);
+    background: rgba(0, 102, 255, 0.08);
 }
 
 .project-header h3 {
@@ -209,6 +218,11 @@
 
 .project-status.live {
     background: #4CAF50;
+    color: white;
+}
+
+.project-status.contribution {
+    background: rgba(0, 102, 255, 0.85);
     color: white;
 }
 
@@ -247,7 +261,6 @@
     flex: 1;
     min-width: 120px;
     padding: 12px 20px;
-    border-radius: 25px;
     font-weight: 600;
     text-decoration: none;
     text-align: center;

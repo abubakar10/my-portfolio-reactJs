@@ -25,10 +25,33 @@ html, body {
   max-width: 100%;
 }
 
+section,
+.hero,
+.skills-section,
+.mainexperience,
+.mywork,
+.contactMe,
+.portfolio-section {
+  scroll-margin-top: 12px;
+}
+
 /* Better touch targets on mobile */
 @media (max-width: 768px) {
   a, button {
     min-height: 44px;
-    min-width: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

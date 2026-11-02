@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# Malik Abubakar Shafeeq — Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site: [https://www.abubakar-portfolio.site](https://www.abubakar-portfolio.site)
 
-## Available Scripts
+Personal portfolio of **Malik Abubakar Shafeeq**, a Full-Stack Software Engineer, Cloud & DevOps Engineer, MERN Stack Specialist, and Top Rated Upwork Freelancer based in Islamabad, Pakistan.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Professional identity
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Name:** Malik Abubakar Shafeeq
+- **Role:** Full-Stack Software Engineer
+- **Positioning:** Full-Stack Software Engineer | Cloud & DevOps Engineer | MERN Stack Specialist | Top Rated Upwork Freelancer
+- **Location:** Islamabad, Pakistan
+- **Experience:** 2+ years
+- **Availability:** Full-time · Contract · Freelance
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I work across the full software development lifecycle — frontend development, backend architecture, cloud deployment, and production maintenance.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Skills
 
-### `npm run build`
+### Frontend Development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+HTML5, CSS3, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS, Bootstrap, Ant Design, Vite, React Router, Framer Motion
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Node.js, Express.js, REST APIs, GraphQL, JWT Authentication, OAuth, MongoDB, Mongoose, PostgreSQL, Prisma ORM, Zod
 
-### `npm run eject`
+### Cloud & DevOps
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Microsoft Azure, Azure PostgreSQL, Azure Cosmos DB, AWS, Git, GitHub, GitHub Actions, CI/CD pipelines, Docker, Terraform, Linux server management, cloud deployment, application hosting, environment configuration, production troubleshooting
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Other tools & integrations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Stripe, Brevo, WordPress, Elementor, WooCommerce, Google Search Console, Google Ads, Schema.org, third-party API integrations
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Work experience
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Software Engineer — IT Consulting and Services (ITCS)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Full-time** · Dec 2024 – Present · Islamabad, Pakistan
 
-### Code Splitting
+Full-stack application development with React.js, TypeScript, Node.js, and Express.js. Enterprise architecture, RESTful APIs, PostgreSQL and MongoDB, Prisma ORM, Microsoft Azure (including Azure PostgreSQL and Cosmos DB), GitHub Actions CI/CD, application hosting, production maintenance, database optimization, and third-party API integrations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### React Intern — Troon Technologies
 
-### Analyzing the Bundle Size
+**Internship** · Sep 2024 – Nov 2024 · Remote
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+React.js and TypeScript, Ant Design, Tailwind CSS, REST and GraphQL integrations, Recoil and React Hooks, GitHub collaboration, and frontend work on Iconify, a medical system application.
 
-### Making a Progressive Web App
+### Frontend Intern — Octaloop Technologies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Internship** · Aug 2023 – Oct 2023 · Remote
 
-### Advanced Configuration
+React.js, HTML, CSS, and JavaScript. Responsive UI development, reusable components, Ant Design, and Tailwind CSS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Education
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Bachelor in Information Technology**  
+International Islamic University Islamabad · Sep 2020 – Aug 2024 · Islamabad, Pakistan
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Freelance
+
+Top Rated Upwork Freelancer working with international clients on web applications, SaaS solutions, API integrations, cloud deployments, and modern digital experiences.
+
+Services include full-stack and MERN development, React.js and Next.js, Node.js backends, WordPress, SaaS applications, Azure cloud deployment, DevOps and CI/CD, API integrations, and website optimization.
+
+Set `links.upwork` in `src/data/siteContent.js` to your public Upwork profile URL to enable the profile CTA.
+
+---
+
+## Featured projects
+
+### SmartPropertyChecks
+
+[smartpropertychecks.com](https://smartpropertychecks.com/) — Website management, technical SEO, and digital marketing for a UK property compliance services company. WordPress, Elementor, Schema.org, Google Search Console, Google Business Profile, and Google Ads.
+
+### ITCS Company Website
+
+[itcss.netlify.app](https://itcss.netlify.app/) — Corporate website for IT consulting services. Responsive frontend, API integrations, Azure deployment, and Dev.to blog integration.
+
+### Octaloop Company Website
+
+[octaloop.io](https://www.octaloop.io/) — Company portfolio with React.js, Ant Design, Tailwind CSS, and reusable components.
+
+### HRM System
+
+Professional contribution to a Human Resource Management System covering personnel information management, employee data, ZKTeco attendance integration, APIs, and backend/database work. No public URL.
+
+### Mahnoor Dental Clinic
+
+[mahnoordental.com.pk](https://mahnoordental.com.pk/) — WordPress development and SEO for a dental clinic in Islamabad, including technical SEO, image optimization, Google Business Profile, and local SEO.
+
+---
+
+## Contact
+
+| | |
+| --- | --- |
+| **Phone** | [+92 304 5414897](tel:+923045414897) |
+| **Email** | [abubakarr1011@gmail.com](mailto:abubakarr1011@gmail.com) |
+| **Location** | Islamabad, Pakistan |
+| **LinkedIn** | [linkedin.com/in/abubakar-shafeeq1](https://www.linkedin.com/in/abubakar-shafeeq1/) |
+| **GitHub** | [github.com/abubakar10](https://github.com/abubakar10) |
+| **Portfolio** | [abubakar-portfolio.site](https://www.abubakar-portfolio.site/) |
+| **Upwork** | Configure in `src/data/siteContent.js` (`links.upwork`) |
+
+---
+
+## Site structure
+
+| Section | Content |
+| --- | --- |
+| Hero | Professional headline, positioning, highlights, and CTAs |
+| About | Full-stack lifecycle, cloud, DevOps, and core technologies |
+| Skills | Categorized technical skills without proficiency percentages |
+| Cloud Infrastructure & DevOps | Azure, AWS, and automation capabilities |
+| Experience | Work history, education, and key projects |
+| Freelance | Top Rated Upwork badge, services, and CTA |
+| Projects | Featured live and contribution work |
+| Contact | Email, phone, location, LinkedIn, GitHub, Upwork, CV |
+
+---
+
+## Tech stack (this repo)
+
+- React 18 with Vite 7
+- React Router and hash navigation
+- Framer Motion
+- React Icons
+- CSS3
+- Netlify (`netlify.toml`, Node 20.19.0)
+
+---
+
+## Getting started
+
+Requires **Node.js 20.19.0** (see `.nvmrc`).
+
+```bash
+npm install
+npm run dev
+```
+
+The app opens at [http://localhost:3000](http://localhost:3000).
+
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build (`build/` folder) |
+| `npm run preview` | Preview the production build |
+
+---
+
+© Malik Abubakar Shafeeq. All rights reserved.

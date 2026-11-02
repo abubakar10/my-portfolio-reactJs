@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaFileDownload } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaBriefcase, FaFileDownload, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { SiUpwork } from 'react-icons/si';
 import "./ContactMe.css";
-import divider from "./../../../Assets/images/divider.png";
 import cvPdf from "./../../../download.pdf";
+import { links, profile } from '../../../data/siteContent';
 
 const ContactMe = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
+  const isInView = useInView(sectionRef, {
     once: true,
     amount: 0.2,
     margin: "0px 0px -50px 0px"
@@ -39,109 +40,105 @@ const ContactMe = () => {
     }
   };
 
+  const cards = [
+    {
+      icon: <FaPhone />,
+      title: "Phone",
+      value: links.phoneLabel,
+      href: links.phone
+    },
+    {
+      icon: <FaEnvelope />,
+      title: "Email",
+      value: links.emailLabel,
+      href: links.email
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      title: "Location",
+      value: profile.location
+    },
+    {
+      icon: <FaBriefcase />,
+      title: "Available For",
+      value: profile.availability
+    },
+    {
+      icon: <FaLinkedin />,
+      title: "LinkedIn",
+      value: "abubakar-shafeeq1",
+      href: links.linkedin,
+      external: true
+    },
+    {
+      icon: <FaGithub />,
+      title: "GitHub",
+      value: "abubakar10",
+      href: links.github,
+      external: true
+    },
+    {
+      icon: <SiUpwork />,
+      title: "Upwork",
+      value: "Top Rated Freelancer",
+      href: links.upwork || "#freelance",
+      external: Boolean(links.upwork)
+    }
+  ];
+
   return (
-    <motion.div 
-      className="contactMe" 
+    <motion.section
+      className="contactMe"
       id='contactMe'
       ref={sectionRef}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
+      aria-labelledby="contact-title"
     >
-      <motion.div
-        variants={itemVariants}
-        className="contact-header"
-      >
-        <h1>Get In Touch</h1>
-        <div className='divider'>
-          <img src={divider} alt="" />
-        </div>
+      <motion.div variants={itemVariants} className="contact-header">
+        <h2 className="section-title" id="contact-title">Get In Touch</h2>
       </motion.div>
 
-      <motion.div
-        variants={itemVariants}
-        className="contact-intro"
-      >
-        <h2>Let's Build Something Amazing Together</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you need a full-stack solution, frontend expertise, or cloud infrastructure, let's connect!</p>
+      <motion.div variants={itemVariants} className="contact-intro">
+        <h3>Let's build something reliable together</h3>
+        <p>
+          I'm available for full-time, contract, and freelance work. If you need a full-stack application, cloud deployment, DevOps automation, or a polished web experience, let's talk.
+        </p>
       </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        className="contact-info-grid"
-      >
-        <motion.div 
-          variants={itemVariants} 
-          className="contact-card"
-          whileHover={{ scale: 1.05, y: -5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="contact-icon">
-            <FaPhone />
-          </div>
-          <div className="contact-details">
-            <h3>Phone</h3>
-            <p>
-              <a href="tel:+923045414897">+92 304 5414897</a>
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          variants={itemVariants} 
-          className="contact-card"
-          whileHover={{ scale: 1.05, y: -5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="contact-icon">
-            <FaEnvelope />
-          </div>
-          <div className="contact-details">
-            <h3>Email</h3>
-            <p>
-              <a href="mailto:abubakarr1011@gmail.com">abubakarr1011@gmail.com</a>
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          variants={itemVariants} 
-          className="contact-card"
-          whileHover={{ scale: 1.05, y: -5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="contact-icon">
-            <FaMapMarkerAlt />
-          </div>
-          <div className="contact-details">
-            <h3>Location</h3>
-            <p>Islamabad, Pakistan</p>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          variants={itemVariants} 
-          className="contact-card"
-          whileHover={{ scale: 1.05, y: -5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <div className="contact-icon">
-            <FaBriefcase />
-          </div>
-          <div className="contact-details">
-            <h3>Available For</h3>
-            <p>Full-time • Contract • Freelance</p>
-          </div>
-        </motion.div>
+      <motion.div variants={containerVariants} className="contact-info-grid">
+        {cards.map((card) => (
+          <motion.article
+            key={card.title}
+            variants={itemVariants}
+            className="contact-card"
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="contact-icon">{card.icon}</div>
+            <div className="contact-details">
+              <h3>{card.title}</h3>
+              <p>
+                {card.href ? (
+                  <a
+                    href={card.href}
+                    target={card.external ? "_blank" : undefined}
+                    rel={card.external ? "noopener noreferrer" : undefined}
+                  >
+                    {card.value}
+                  </a>
+                ) : card.value}
+              </p>
+            </div>
+          </motion.article>
+        ))}
       </motion.div>
 
-      <motion.div
-        variants={itemVariants}
-        className="download-section"
-      >
-        <motion.a 
-          href={cvPdf} 
-          download="Malik_Abubakar_Shafeeq_CV.pdf" 
+      <motion.div variants={itemVariants} className="download-section">
+        <motion.a
+          href={cvPdf}
+          download="Malik_Abubakar_Shafeeq_CV.pdf"
           className="btn-modern"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
@@ -154,22 +151,22 @@ const ContactMe = () => {
         </motion.a>
       </motion.div>
 
-      <motion.div
-        variants={itemVariants}
-        className="contact-footer"
-      >
-        <p className="thank-you">Thank you for visiting my portfolio! Let's create something extraordinary together. 🚀</p>
-        <div className='divider'>
-          <img src={divider} alt="" />
-        </div>
-        <p className="copyright">© {new Date().getFullYear()} Malik Abubakar Shafeeq. All rights reserved.</p>
+      <motion.footer variants={itemVariants} className="contact-footer">
+        <p className="thank-you">Thank you for visiting. I look forward to working together.</p>
+        <p className="copyright">© {new Date().getFullYear()} {profile.fullName}. All rights reserved.</p>
         <div className="social-links-footer">
-          <a href="https://www.linkedin.com/in/abubakar-shafeeq1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span>•</span>
-          <a href="https://github.com/abubakar10" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span aria-hidden="true">·</span>
+          {links.upwork ? (
+            <a href={links.upwork} target="_blank" rel="noopener noreferrer">Upwork</a>
+          ) : (
+            <a href="#freelance">Upwork</a>
+          )}
         </div>
-      </motion.div>
-    </motion.div>
+      </motion.footer>
+    </motion.section>
   );
 };
 

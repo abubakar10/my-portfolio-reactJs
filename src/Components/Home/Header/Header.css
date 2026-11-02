@@ -55,18 +55,23 @@ a {
   text-decoration: none;
 }
 
-.hero h1 {
+.brand-name {
   font-family: 'Inter', sans-serif;
   color: #fff;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
   font-weight: 800;
-  letter-spacing: -1px;
   background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.hamburger {
+  background: transparent;
+  border: 0;
+  padding: 8px;
 }
 
 nav {
@@ -83,7 +88,7 @@ nav {
 .nav-menu ul {
   display: flex;
   list-style: none;
-  gap: 40px;
+  gap: 22px;
 }
 
 .nav-menu ul li a {
@@ -298,23 +303,56 @@ nav {
   background: linear-gradient(180deg, #0066ff, #00d4ff);
 }
 
-.content h6 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 900;
+.content h1 {
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  font-weight: 800;
   line-height: 1.2;
   text-transform: none;
   width: 100%;
   color: #ffffff;
-  margin-bottom: 25px;
-  letter-spacing: -1px;
+  margin-bottom: 16px;
+  letter-spacing: -0.8px;
+}
+
+.role-line {
+  color: #00d4ff !important;
+  font-weight: 600;
+  margin-bottom: 18px !important;
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem) !important;
+  line-height: 1.5 !important;
 }
 
 .content p {
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   width: 100%;
   line-height: 1.8;
+}
+
+.hero-highlights {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+.hero-highlights li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 102, 255, 0.35);
+  background: rgba(0, 102, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero-highlights svg {
+  color: #00d4ff;
 }
 
 /* Responsive Design */
@@ -340,9 +378,11 @@ nav {
   }
 
   .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    display: none;
     flex-direction: column;
     background: rgba(10, 14, 26, 0.98);
     backdrop-filter: blur(20px);
@@ -352,10 +392,11 @@ nav {
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(0, 102, 255, 0.3);
     border-top: 2px solid #0066ff;
+    z-index: 20;
   }
 
   .nav-menu.active {
-    left: 0;
+    display: flex;
   }
 
   .nav-menu ul {
@@ -399,8 +440,8 @@ nav {
     max-width: 80%;
   }
 
-  .content h6 {
-    font-size: 2rem;
+  .content h1 {
+    font-size: 1.85rem;
     line-height: 1.3;
   }
 

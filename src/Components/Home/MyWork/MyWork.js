@@ -1,74 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaBriefcase, FaHospital, FaGlobe, FaRocket, FaIndustry, FaLaptopCode } from 'react-icons/fa';
 import "./MyWork.css";
-import divider from "./../../../Assets/images/divider.png";
+import { projects } from '../../../data/siteContent';
+import SkillIcon from '../SkillIcon';
 
 const MyWork = () => {
-  const [hoveredProject, setHoveredProject] = useState(null);
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
+  const isInView = useInView(sectionRef, {
     once: true,
     amount: 0.1
   });
-
-  const projects = [
-    {
-      id: 1,
-      name: "cPanel License Management Platform",
-      technology: "MERN Stack, Stripe, JWT, OAuth, MongoDB, Express.js",
-      company: "SaaS Platform",
-      description: "Full-stack SaaS platform with automated subscription management, payment processing, and license generation. Features include JWT authentication, Google OAuth, Stripe integration, and real-time dashboard updates.",
-      link: "https://www.cpanelforless.com/",
-      color: "#0066ff",
-      status: "Live",
-      icon: <FaBriefcase />
-    },
-    {
-      id: 2,
-      name: "ITCS Company Website",
-      technology: "MERN Stack, RESTful API, Azure, Git, Dev.to Integration",
-      company: "IT Consulting & Services",
-      description: "IT services and consulting company website built with MERN stack. Features include service showcase, API integration, Azure cloud deployment, Git version control, and Dev.to blog integration for content management.",
-      link: "https://itcss.netlify.app/",
-      color: "#00d4ff",
-      status: "Live",
-      icon: <FaLaptopCode />
-    },
-    {
-      id: 3,
-      name: "Octaloop Company Website",
-      technology: "React.js, Ant Design, Tailwind CSS",
-      company: "Octaloop Technologies",
-      description: "Company portfolio website with modern UI/UX design, interactive components, and responsive layouts built with React and modern CSS frameworks.",
-      link: "https://www.octaloop.io/",
-      color: "#0066ff",
-      status: "Live",
-      icon: <FaGlobe />
-    },
-    {
-      id: 4,
-      name: "Gas Station Management System",
-      technology: "MERN Stack, React.js, Node.js, MongoDB, Express.js",
-      company: "RK & Co",
-      description: "Comprehensive gas station management system for inventory tracking, sales management, employee management, and real-time reporting. Features include automated fuel monitoring, transaction processing, and administrative dashboards.",
-      link: "https://rkandco.online/",
-      color: "#0066ff",
-      status: "Live",
-      icon: <FaIndustry />
-    },
-    {
-      id: 5,
-      name: "Personal Portfolio",
-      technology: "React.js, Vite, Framer Motion, CSS3",
-      company: "Personal Project",
-      description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations and interactive UI components.",
-      link: "https://www.abubakar-portfolio.site",
-      color: "#00d4ff",
-      status: "Live",
-      icon: <FaRocket />
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,109 +34,74 @@ const MyWork = () => {
   };
 
   return (
-    <div className='mywork' id='myWork' ref={sectionRef}>
+    <section className='mywork' id='myWork' ref={sectionRef} aria-labelledby="work-title">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="mywork-content"
       >
-        {/* Header Section */}
         <motion.div variants={itemVariants} className="work-header">
-          <h1>Featured Projects</h1>
-          <div className='divider'>
-            <img src={divider} alt="Divider" />
-          </div>
+          <h2 className="section-title" id="work-title">Featured Projects</h2>
           <p className="work-subtitle">
-            Full-stack applications and modern web solutions built with MERN stack, cloud platforms, and cutting-edge technologies.
+            Selected client and product work spanning full-stack applications, cloud deployments, WordPress, and technical SEO.
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
         <motion.div variants={itemVariants} className="projects-section">
           <div className="projects-grid">
             {projects.map((project) => (
-              <motion.div
+              <article
                 key={project.id}
                 className="project-card"
-                style={{ '--project-color': project.color }}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                style={{ '--project-color': '#0066ff' }}
               >
-                <div className="project-icon-large">{project.icon}</div>
-                
+                <div className="project-icon-large">
+                  <SkillIcon name={project.icon} size={36} />
+                </div>
+
                 <div className="project-header">
                   <h3>{project.name}</h3>
-                  <span className={`project-status ${project.status.toLowerCase().replace(' ', '-')}`}>
+                  <span className={`project-status ${project.status.toLowerCase()}`}>
                     {project.status}
                   </span>
                 </div>
 
-                <div className="project-description">
-                  <p>{project.description}</p>
-                </div>
+                <p className="project-description">{project.description}</p>
 
-                <div className="project-tech">
-                  <strong>Tech Stack:</strong> {project.technology}
-                </div>
+                <ul className="project-highlights">
+                  {project.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
 
-                <div className="project-company">
-                  <strong>Client:</strong> {project.company}
-                </div>
+                <p className="project-tech">
+                  <strong>Tech stack:</strong> {project.technology}
+                </p>
+                <p className="project-company">
+                  <strong>Client:</strong> {project.client}
+                </p>
 
                 <div className="project-actions">
-                  <motion.a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-btn primary"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Project →
-                  </motion.a>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn primary"
+                    >
+                      View Project
+                    </a>
+                  ) : (
+                    <span className="project-btn secondary">No public URL</span>
+                  )}
                 </div>
-
-                {/* Hover Effect */}
-                <div 
-                  className="project-hover-bg"
-                  style={{
-                    opacity: hoveredProject === project.id ? 0.15 : 0
-                  }}
-                />
-              </motion.div>
+              </article>
             ))}
           </div>
         </motion.div>
-
-        {/* Stats Section */}
-        <motion.div variants={itemVariants} className="work-stats">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <span className="stat-number">12+</span>
-              <span className="stat-label">Projects</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">3</span>
-              <span className="stat-label">Companies</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">15+</span>
-              <span className="stat-label">Technologies</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">100%</span>
-              <span className="stat-label">Satisfaction</span>
-            </div>
-          </div>
-          <p className="work-footer-text">
-            🚀 Continuously building innovative solutions with modern technologies!
-          </p>
-        </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

@@ -1,16 +1,19 @@
 import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FaFileDownload, FaComments } from 'react-icons/fa';
+import { FaFileDownload, FaComments, FaBriefcase, FaCloud, FaStar } from 'react-icons/fa';
 import './Header.css';
 import myimage from "./../../../Assets/images/download.jpeg";
 import cvPdf from "./../../../download.pdf";
 import { HashLink as Link } from 'react-router-hash-link';
+import { profile, navItems } from '../../../data/siteContent';
+
+const highlightIcons = [FaBriefcase, FaCloud, FaStar];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(prev => !prev);
+    setIsMenuOpen((prev) => !prev);
   }, []);
 
   const closeMenu = useCallback(() => {
@@ -44,93 +47,118 @@ const Header = () => {
   };
 
   return (
-    <motion.div 
+    <motion.header
       className="hero"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <motion.nav variants={itemVariants}>
-        <motion.a 
-          href="/" 
+      <motion.nav variants={itemVariants} aria-label="Primary">
+        <motion.a
+          href="/"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300, duration: 0.2 }}
         >
-          <h1>Abubakar Shafeeq</h1>
+          <p className="brand-name">{profile.name}</p>
         </motion.a>
-        
+
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li>
-              <Link to="#skills" smooth onClick={closeMenu}>
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link to="#experience" smooth onClick={closeMenu}>
-                Experience
-              </Link>
-            </li>
-            <li>
-              <Link to="#myWork" smooth onClick={closeMenu}>
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link to="#contactMe" smooth onClick={closeMenu}>
-                Contact
-              </Link>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.to}>
+                <Link to={item.to} smooth onClick={closeMenu}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div 
+        <button
+          type="button"
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </motion.nav>
 
       <motion.div className="content" variants={containerVariants}>
         <motion.div className='intro' variants={itemVariants}>
-          <motion.span 
+          <motion.span
             className="title"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Software Engineer
+            {profile.role}
           </motion.span>
-          <motion.h6
+          <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Full-Stack Developer | MERN Stack Specialist
-          </motion.h6>
+            {profile.headline}
+          </motion.h1>
+          <motion.p
+            className="role-line"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+          >
+            {profile.positioning}
+          </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Full-Stack Software Engineer with hands-on experience in building and maintaining product-based web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Experienced in developing clean, scalable, and high-performance user interfaces with seamless backend integration.
-            <br /><br />
-            Strong expertise in modern frontend frameworks, state management, and performance optimization. Backend expertise includes RESTful API development, authentication and authorization, real-time communication, and database optimization. Experienced in cloud platforms including Azure and AWS, with hands-on exposure to deployments, CI/CD pipelines, and application monitoring.
+            {profile.summary}
           </motion.p>
-          
-          <motion.div 
+
+          <motion.ul
+            className="hero-highlights"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+          >
+            {profile.highlights.map((item, index) => {
+              const Icon = highlightIcons[index] || FaBriefcase;
+              return (
+                <li key={item}>
+                  <Icon aria-hidden="true" />
+                  {item}
+                </li>
+              );
+            })}
+          </motion.ul>
+
+          <motion.div
             className="cta-buttons"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            <motion.a 
-              href={cvPdf} 
-              download="Malik_Abubakar_Shafeeq_CV.pdf" 
+            <motion.a
+              href="#myWork"
               className="btn-modern primary"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <span className="btn-icon">
+                <FaBriefcase />
+              </span>
+              View My Work
+            </motion.a>
+            <motion.a
+              href={cvPdf}
+              download="Malik_Abubakar_Shafeeq_CV.pdf"
+              className="btn-modern secondary"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -140,8 +168,8 @@ const Header = () => {
               </span>
               Download CV
             </motion.a>
-            <motion.a 
-              href="#contactMe" 
+            <motion.a
+              href="#contactMe"
               className="btn-modern secondary"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -150,25 +178,24 @@ const Header = () => {
               <span className="btn-icon">
                 <FaComments />
               </span>
-              Get In Touch
+              Contact Me
             </motion.a>
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className='myImage'
           variants={itemVariants}
-          whileHover={{ 
+          whileHover={{
             scale: 1.02,
             transition: { duration: 0.3 }
           }}
         >
-          <img src={myimage} alt="Abubakar Shafeeq" />
+          <img src={myimage} alt={profile.fullName} width="400" height="400" />
         </motion.div>
       </motion.div>
-    </motion.div>
+    </motion.header>
   );
 };
 
 export default Header;
-

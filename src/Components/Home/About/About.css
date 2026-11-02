@@ -1,0 +1,60 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.about-copy p {
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.about-meta {
+  color: #00d4ff !important;
+  font-weight: 600;
+  margin-bottom: 0 !important;
+}
+
+.about-focus {
+  list-style: none;
+  margin: 0;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: rgba(0, 102, 255, 0.05);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-left: 4px solid #0066ff;
+}
+
+.about-focus li {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  padding-left: 16px;
+  position: relative;
+}
+
+.about-focus li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  background: #00d4ff;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-focus {
+    grid-template-columns: 1fr;
+  }
+}
